@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Singleton : MonoBehaviour {
-    
+public abstract class Singleton : MonoBehaviour
+{
+
 
 
