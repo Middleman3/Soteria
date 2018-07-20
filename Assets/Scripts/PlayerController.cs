@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
 	private void Update()
 
     {
+
+        if( GetComponent<Rigidbody>().position == GetComponent<NavMeshAgent>().destination ) {
+            GetComponent<NavMeshAgent>().destination = new Vector3( 0f, 0f, 0f );
+        }
         if( Input.GetKeyDown( KeyCode.A ) ) {
             abilityHandler.CastAbility();
         }
