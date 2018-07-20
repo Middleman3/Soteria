@@ -19,6 +19,10 @@ public class Queue<T> : LinkedList<T>
         list.Add(value);
     }
 
+    /**
+     * Peeks at the object at the front of the queue without modifying it.
+     */
+
     public override T Peek() {
         return list.Peek();
     }

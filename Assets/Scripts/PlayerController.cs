@@ -7,15 +7,17 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
-        abilityHandler.QueueAbilities();
+        
 	}
 
 	private void Update()
 
     {
+        abilityHandler.QueueAbilities();
 
         if( GetComponent<Rigidbody>().position == GetComponent<NavMeshAgent>().destination ) {
-            GetComponent<NavMeshAgent>().destination = new Vector3( 0f, 0f, 0f );
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         }
         if( Input.GetKeyDown( KeyCode.A ) ) {
             abilityHandler.CastAbility();

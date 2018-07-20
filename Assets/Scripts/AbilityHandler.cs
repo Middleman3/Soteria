@@ -11,12 +11,24 @@ public class AbilityHandler {
     }
 
     public void QueueAbilities() { //For development purposes only
-        Debug.Log("Queuing up abilities...");
-        abilities.Enqueue(new Ability("Ability1"));
-        abilities.Enqueue(new Ability("Ability2"));
-        abilities.Enqueue(new Ability("Ability3"));
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            abilities.Enqueue(new Ability("Ability1"));
 
-        Debug.Log("Abilities queued.");
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            abilities.Enqueue(new Ability("Ability2"));
+
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            abilities.Enqueue(new Ability("Ability3"));
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            abilities.Enqueue(new Ability("Ability4"));
+        }
     }
 
     public void CastAbility() {
