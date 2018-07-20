@@ -32,10 +32,17 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 GetComponent<NavMeshAgent>().destination = hit.point;
+
             }
         }
 
     }
+
+	private void FixedUpdate()
+	{
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+	}
 
 
 }
