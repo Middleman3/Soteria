@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Queue<T> : LinkedList<T>
 {
-    private LinkedList<T> list = new LinkedList<T>(); // The structure in which we
+    private readonly LinkedList<T> list = new LinkedList<T>(); // The structure in which we
                                                       // store the queue.
 
     /**
@@ -13,10 +13,14 @@ public class Queue<T> : LinkedList<T>
      * @param value
      *            The value to append.
      */
-    public void enqueue(T value)
+    public void Enqueue(T value)
     {
         //TODO Add first Parameter
         list.Add(value);
+    }
+
+    public override T Peek() {
+        return list.Peek();
     }
 
     /**
@@ -25,7 +29,7 @@ public class Queue<T> : LinkedList<T>
      * 
      * @return The value at the front of the queue.
      */
-    public T dequeue()
+    public T Dequeue()
     {
         return list.Remove(0);
     }
@@ -127,6 +131,14 @@ public class LinkedList<T>
         last.next = new Node<T>(value);
         last = last.next;
         ++size;
+    }
+
+    public virtual T Peek() {
+        if( first != null ) {
+            return first.value;
+        }
+
+        return default( T );
     }
 
     public T Remove(int index)
