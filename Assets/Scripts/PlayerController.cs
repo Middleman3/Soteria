@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+
+
     }
 
 	private void FixedUpdate()
@@ -43,6 +45,12 @@ public class PlayerController : MonoBehaviour
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 	}
+
+	//private void OnCollisionEnter(Collision collision)
+	//{
+ //       var position = transform.position;
+ //       GetComponent<NavMeshAgent>().destination = position;
+	//}
 
 
 }
