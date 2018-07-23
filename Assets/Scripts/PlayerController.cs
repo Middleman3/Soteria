@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
             abilityHandler.CastAbility();
         }
 
-
         if (Input.GetButtonDown("Fire1"))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,7 +27,5 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-
 }
 
