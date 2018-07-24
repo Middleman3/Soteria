@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Selector : MonoBehaviour {
-
-    public static Canvas SelectionCanvas;
     bool test = true;
+    public static Canvas SelectionCanvas;
     GameObject selection;
 
 	// Use this for initialization
@@ -31,6 +30,7 @@ public class Selector : MonoBehaviour {
 
     private bool isSelectable(GameObject o)
     {
-        return o is Selectable;
+        if (test) Debug.Log("Selector.isSelectable...");
+        return o.GetComponent<Selectable>() != null;
     }
 }
