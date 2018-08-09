@@ -2,45 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Loot : Action { // Strategy Design Pattern (ConcreteStrategy)
+public class Loot : Action { // Command Design Pattern (ConcreteCommand)
     private bool test = true;
+    private Inventory target;
+    private Inventory looter;
+    private Inventory.lootOption option;
 
-    // Override Abstract Properties
-    protected override string buttonName 
-    {
-        get { return "LootButton"; }
-        set { buttonName = value; }
-    }
-    public override string title 
-    {
-        get { return "Loot"; }
-        set { buttonName = value; }
-    }
+    // Default Constructor for Unity 
+    public Loot() { }
 
-    //Singleton Design Pattern
-    private static Action _instance = null;
-    public static Action Instance()
-    {
-        if (_instance == null) _instance = new Loot();
-        return _instance;
-    }
-    protected Loot() : base()
+    public Loot(Inventory target, Inventory looter, Inventory.lootOption option)
     {
         if (test) Debug.Log("Loot Constructor...");
+        this.target = target;
+        this.option = option;
+        this.looter = looter;
     }
 
     // Overrides for Template Method Design Pattern
     protected override bool Execute() 
     {
         if (test) Debug.Log("Loot.Execute...");
-        //throw new System.NotImplementedException();
-        return false;
+        return this.looter.Loot(target, option);
     }
-    protected override bool ValidateAction() 
+
+    public override System.Type TargetType()
     {
-        if (test) Debug.Log("Loot.ValidateAction...");
-        //Check Inventory Space, Carrying Capacity
-        //throw new System.NotImplementedException();
-        return false;
+        if (test) Debug.Log("Loot.TargetType...");
+        return target.GetType();
     }
 }

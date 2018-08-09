@@ -66,9 +66,12 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Queue.cs" />
     <Compile Include="Assets\Scripts\Selectables\Action.cs" />
+    <Compile Include="Assets\Scripts\Selectables\Collector.cs" />
+    <Compile Include="Assets\Scripts\Selectables\Element.cs" />
+    <Compile Include="Assets\Scripts\Selectables\Inventory.cs" />
     <Compile Include="Assets\Scripts\Selectables\Item.cs" />
-    <Compile Include="Assets\Scripts\Selectables\ItemContainer.cs" />
     <Compile Include="Assets\Scripts\Selectables\Loot.cs" />
+    <Compile Include="Assets\Scripts\Selectables\Lootable.cs" />
     <Compile Include="Assets\Scripts\Selectables\Selectable.cs" />
     <Compile Include="Assets\Scripts\Selectables\SelectMenu.cs" />
     <Compile Include="Assets\Scripts\Selectables\Selector.cs" />

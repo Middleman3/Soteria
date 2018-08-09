@@ -17,26 +17,31 @@ public class SelectMenu {
         if (test) Debug.Log("SelectMenu Constructor...");
         this.center = Camera.main.WorldToScreenPoint(subject.gameObject.transform.position);
         this.subject = subject;
-        this.buttons = GenerateButtons();
+        subject.ValidateButtons(Selector.allActionButtons);
+        GenerateButtons(subject.GetValidButtons());
     }
 
-    private Button[] GenerateButtons () 
+    private void GenerateButtons (List<Button> buttons) 
     {
-        if (test) Debug.Log("SelectMenu.generateButtons...");
-        Action[] actionList = subject.Actions;
-        int length = actionList.Length;
-        Button[] buttons = new Button[length];
-        for (int i = 0; i < length; i++)
+        if (test) Debug.Log("SelectMenu.GenerateButtons...");
+        int count = 0;
+        foreach(Button button in buttons)
         {
-            Vector3 buttonPos = GetButtonPos(i, length);
-            if (actionList[i] != null) buttons[i] = actionList[i].CreateButton(buttonPos);
+            Vector3 buttonPos = GetButtonPos(count++, buttons.Count);
+            CreateButton(button, buttonPos);
         }
-        return buttons;
+    }
+
+    private void CreateButton(Button button, Vector3 buttonPos)
+    {
+        if (test) Debug.Log("SelectMenu.CreateButton...");
+        GameObject newButton = GameObject.Instantiate(button.gameObject, Selector.SelectionCanvas.transform);
+        newButton.transform.Translate(buttonPos);
     }
 
     private Vector3 GetButtonPos (int iterator, int count) 
     {
-        if (test) Debug.Log("SelectMenu.getButtonPos...");
+        if (test) Debug.Log("SelectMenu.GetButtonPos...");
         if (count > 0) throw new System.ArgumentException("count parameter cannot be 0");
         Vector3 result = center;
 

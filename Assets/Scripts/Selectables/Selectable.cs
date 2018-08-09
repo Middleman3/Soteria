@@ -1,29 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public abstract class Selectable : MonoBehaviour { // Strategy Design Pattern (Context)
-    private bool test = true;
-    protected const int maxActions = 10;
-    protected Action[] actions = new Action[maxActions];
+public class Selectable : MonoBehaviour { // Strategy Design Pattern (Context)
+    protected bool test = true;
+    //protected const int maxActions = 10;
 
-    // Getter and Setter for Action List
-    public Action[] Actions{ get; set; }
+    private List<Element> elements;
 
-    /*This method generates 
-     */
-    public virtual SelectMenu DisplayGUI() 
+    private List<Button> validButtons;
+
+    public List<Button> GetValidButtons()
     {
-        if (test) Debug.Log("Selectable.DisplayGUI...");
-        return new SelectMenu(this);
+        return validButtons;
     }
 
-    /*
+    private bool HasValidTarget(System.Type type)
+    {
+        if (test) Debug.Log("Selectable.HasValidTarget...");
+        foreach (Element element in elements)
+        {
+            if (element.GetType() == type)
+            {
+                return true;
+            }
+        }
+        Debug.Log("Selectable.Collect Failed.");
+        return false;
+    }
+
+    /**
      * As player progresses and circumstances change, 
      * new actions can be performed on different Selectables.
      * This function checks the player's capabilities and adds 
      * actions as appropriate. 
      */
-    public abstract void UpdateActions(GameObject player);
+    public void ValidateButtons(List<Button> allButtons)
+    {
+        if (test) Debug.Log("Selectable.ValidateButtons...");
+        validButtons = new List<Button>();
 
+        foreach (Button button in allButtons)
+        {
+            Action action = button.gameObject.GetComponent<Action>();
+            if (action == null)
+            {
+                Debug.Log("Error: allActionButtons has a button with no action!");
+                return;
+            }
+            System.Type targetType = action.TargetType();
+            if (HasValidTarget(targetType))
+            {
+                validButtons.Add(button);
+            }
+        }
+    }
 }
