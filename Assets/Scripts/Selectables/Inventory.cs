@@ -13,7 +13,7 @@ public class Inventory : Element
 
     public List<Item> inventory { get; set; }
 
-    void Start()
+    public Inventory()
     {
         inventory = new List<Item>();
     }

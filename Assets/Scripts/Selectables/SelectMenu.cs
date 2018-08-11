@@ -27,7 +27,7 @@ public class SelectMenu {
         int count = 0;
         foreach(Button button in buttons)
         {
-            Vector3 buttonPos = GetButtonPos(count++, buttons.Count);
+            Vector3 buttonPos = this.center;//GetButtonPos(count++, buttons.Count);
             CreateButton(button, buttonPos);
         }
     }
@@ -35,14 +35,14 @@ public class SelectMenu {
     private void CreateButton(Button button, Vector3 buttonPos)
     {
         if (test) Debug.Log("SelectMenu.CreateButton...");
-        GameObject newButton = GameObject.Instantiate(button.gameObject, Selector.SelectionCanvas.transform);
+        GameObject newButton = GameObject.Instantiate(button.gameObject, Selector.selectionCanvas.transform);
         newButton.transform.Translate(buttonPos);
     }
 
     private Vector3 GetButtonPos (int iterator, int count) 
     {
         if (test) Debug.Log("SelectMenu.GetButtonPos...");
-        if (count > 0) throw new System.ArgumentException("count parameter cannot be 0");
+        if (count == 0) throw new System.ArgumentException("count parameter cannot be 0");
         Vector3 result = center;
 
         // Calculate Clock-Hand style position determined by iterator and count

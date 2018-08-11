@@ -5,13 +5,18 @@ using UnityEngine.UI;
 
 public class Selector : MonoBehaviour {
     bool test = true;
-    public static Canvas SelectionCanvas;
-    public static readonly List<Button> allActionButtons;
-    
+    public static Canvas selectionCanvas;
+    public Canvas canvas;
+
+    public static List<Button> allActionButtons;
+    public List<Button> buttonList = new List<Button>();
+
     Selectable selection;
 
-	void Start () {
-		
+	void Awake ()
+    {
+        selectionCanvas = canvas;
+        allActionButtons = buttonList; 
 	}
 	
 	void Update () {

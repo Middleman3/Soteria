@@ -16,6 +16,26 @@ public class Selectable : MonoBehaviour { // Strategy Design Pattern (Context)
         return validButtons;
     }
 
+    public void FindElements()
+    {
+        Component[] components = this.gameObject.GetComponents<Element>();
+        for (int i = 0; i < components.Length; i++)
+        {
+            Element element = (Element)components[i];
+            elements.Add(element);
+        }
+    }
+        
+    void Awake()
+    {
+        elements = new List<Element>();
+    }
+
+    void Start()
+    {
+        FindElements();
+    }
+
     private bool HasValidTarget(System.Type type)
     {
         if (test) Debug.Log("Selectable.HasValidTarget...");

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public abstract class Action : MonoBehaviour // Command Design Pattern (Strategy)
 {
-    private bool test = true;
+    protected bool test = true;
 
     protected abstract bool Execute();
 

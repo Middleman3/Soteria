@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -234,7 +234,7 @@ Prefab:
     - target: {fileID: 224139401065277074, guid: bf896c8c08b332041a038269890b72ef,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139401065277074, guid: bf896c8c08b332041a038269890b72ef,
         type: 2}
@@ -264,12 +264,12 @@ Prefab:
     - target: {fileID: 224139401065277074, guid: bf896c8c08b332041a038269890b72ef,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 301
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139401065277074, guid: bf896c8c08b332041a038269890b72ef,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224139401065277074, guid: bf896c8c08b332041a038269890b72ef,
         type: 2}
@@ -310,6 +310,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516508787234338, guid: bf896c8c08b332041a038269890b72ef, type: 2}
+      propertyPath: m_Name
+      value: LootButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf896c8c08b332041a038269890b72ef, type: 2}
@@ -465,6 +469,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f856fcdc2be4e241bb81f55da357d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1569271997}
+  buttonList:
+  - {fileID: 379597231}
+--- !u!1 &379597230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1516508787234338, guid: bf896c8c08b332041a038269890b72ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 27133739}
+--- !u!114 &379597231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114085061001147598, guid: bf896c8c08b332041a038269890b72ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 27133739}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &379597234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379597230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d933256c04c718469ded050aae0f166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &654904861
@@ -1028,6 +1057,7 @@ GameObject:
   - component: {fileID: 1864156523}
   - component: {fileID: 1864156522}
   - component: {fileID: 1864156527}
+  - component: {fileID: 1864156528}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1125,11 +1155,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864156521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e5f17fa6f30e5438f6a450e4d57f6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2011574206a0ed141849beb225b5a064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 1
-  items: []
+--- !u!114 &1864156528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864156521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644907811a49c1b4cbd2ad9b86351416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1994066409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1179,7 @@ GameObject:
   - component: {fileID: 1994066412}
   - component: {fileID: 1994066411}
   - component: {fileID: 1994066410}
+  - component: {fileID: 1994066413}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -1202,6 +1242,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1994066413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994066409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d933256c04c718469ded050aae0f166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2117290823
 GameObject:
   m_ObjectHideFlags: 0

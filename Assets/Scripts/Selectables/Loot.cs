@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Loot : Action { // Command Design Pattern (ConcreteCommand)
-    private bool test = true;
     private Inventory target;
     private Inventory looter;
     private Inventory.lootOption option;
@@ -29,6 +28,6 @@ public class Loot : Action { // Command Design Pattern (ConcreteCommand)
     public override System.Type TargetType()
     {
         if (test) Debug.Log("Loot.TargetType...");
-        return target.GetType();
+        return new Inventory().GetType();
     }
 }
